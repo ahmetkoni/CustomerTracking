@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface IRoutineServiceService
     {
         IResult Add(RoutineService routineService);
-        IResult Delete(RoutineService routineService);
+        IResult Delete(string Id);
         IResult Update(RoutineService routineService);
         IDataResult<List<RoutineService>> GetAll();
         IDataResult<RoutineService> GetById(int productId);

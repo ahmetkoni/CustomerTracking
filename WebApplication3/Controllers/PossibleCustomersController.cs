@@ -41,5 +41,15 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("delete")]
+        public IActionResult Delete(string Id)
+        {
+            var result = _possibleCustomerService.Delete(Id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

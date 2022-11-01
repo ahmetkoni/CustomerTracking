@@ -13,27 +13,29 @@ namespace Business.Concrete
 {
     public class InvestorManager : IInvestorService
     {
-        IInvestorDal _ınvestorDal;
-        public InvestorManager(IInvestorDal ınvestorDal)
+        IInvestorDal _investorDal;
+        public InvestorManager(IInvestorDal investorDal)
         {
-            _ınvestorDal = ınvestorDal;
+            _investorDal = investorDal;
         }
 
         public IResult Add(Investor investor)
         {
-            _ınvestorDal.Add(investor);
+            _investorDal.Add(investor);
             return new SuccessResult(Messages.InvestorAdded);
         }
 
-        public IResult Delete(Investor investor)
+        public IResult Delete(string Id)
         {
-            _ınvestorDal.Delete(investor);
-            return new SuccessResult();
+            var investor = _investorDal.Get(i => i.Id == Id);
+            _investorDal.Delete(investor);
+            return new SuccessDataResult<List<Investor>>();
+
         }
 
         public IDataResult<List<Investor>> GetAll()
         {
-            return new SuccessDataResult<List<Investor>>(_ınvestorDal.GetAll(),Messages.InvestorListed);
+            return new SuccessDataResult<List<Investor>>(_investorDal.GetAll(),Messages.InvestorListed);
         }
 
         public IResult Update(Investor investor)

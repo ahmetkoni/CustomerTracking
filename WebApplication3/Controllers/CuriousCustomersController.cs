@@ -42,6 +42,16 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("delete")]
+        public IActionResult Delete(string Id)
+        {
+            var result = _curiousCustomerService.Delete(Id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
     }
 }

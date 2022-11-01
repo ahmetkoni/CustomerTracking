@@ -25,10 +25,11 @@ namespace Business.Concrete
             return new SuccessResult(Messages.SessionAdded);
         }
 
-        public IResult Delete(Session session)
+        public IResult Delete(string Id)
         {
+            var session = _sessionDal.Get(s=>s.Id== Id);
             _sessionDal.Delete(session);
-            return new SuccessResult();
+            return new SuccessDataResult<List<Session>>(Messages.SessionDeleted);
         }
 
         public IResult Update(Session session)

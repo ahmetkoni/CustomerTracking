@@ -25,10 +25,11 @@ namespace Business.Concrete
             return new SuccessResult(Messages.RoutineServiceAdded);
         }
 
-        public IResult Delete(RoutineService routineService)
+        public IResult Delete(string Id)
         {
+            var routineService = _routineServiceDal.Get(r=>r.Id== Id);
             _routineServiceDal.Delete(routineService);
-            return new SuccessResult();
+            return new SuccessDataResult<List<RoutineService>>();
         }
 
         public IDataResult<List<RoutineService>> GetAll()

@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface IPossibleCustomerService
     {
         IResult Add(PossibleCustomer possibleCustomer);
-        IResult Delete(PossibleCustomer possibleCustomer);
+        IResult Delete(string Id);
         IResult Update(PossibleCustomer possibleCustomer);
         IDataResult<List<PossibleCustomer>> GetAll();
         IDataResult<PossibleCustomer> GetById(int productId);

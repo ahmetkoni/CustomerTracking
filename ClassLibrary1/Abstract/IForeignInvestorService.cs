@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface IForeignInvestorService
     {
         IResult Add(ForeignInvestor foreignInvestor);
-        IResult Delete(ForeignInvestor foreignInvestor);
+        IResult Delete(string Id);
         IResult Update(ForeignInvestor foreignInvestor);
         IDataResult<List<ForeignInvestor>> GetAll();
     }

@@ -12,7 +12,7 @@ namespace Business.Abstract
     {
         IResult Add(CuriousCustomer curiousCustomer);
         IResult Update(CuriousCustomer curiousCustomer);
-        IResult Delete(CuriousCustomer curiousCustomer);
+        IResult Delete(string Id);
         IDataResult<List<CuriousCustomer>> GetAll();
         IDataResult<CuriousCustomer> GetById(int productId);
 

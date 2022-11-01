@@ -23,6 +23,7 @@ namespace Business.Constants
         public static string RoutineServiceAdded = "Routine Service Added";
         public static string RoutineServiceListed = "Routine Service Listed";
         public static string SessionAdded = "Session Added";
+        public static string SessionDeleted = "Session Deleted";
 
     }
 }

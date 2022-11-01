@@ -25,10 +25,12 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CuriousCustomerAdded);
         }
 
-        public IResult Delete(CuriousCustomer curiousCustomer)
+        public IResult Delete(string Id)
         {
+            var curiousCustomer = _curiousCustomerDal.Get(c => c.Id == Id);
             _curiousCustomerDal.Delete(curiousCustomer);
-            return new SuccessResult();
+            return new SuccessDataResult<List<CuriousCustomer>>();
+
         }
 
         public IDataResult<List<CuriousCustomer>> GetAll()

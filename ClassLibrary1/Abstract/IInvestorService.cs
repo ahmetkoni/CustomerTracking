@@ -12,7 +12,7 @@ namespace Business.Abstract
     {
         IResult Add(Investor investor);
         IResult Update(Investor investor);
-        IResult Delete(Investor investor);
+        IResult Delete(string Id);
         IDataResult<List<Investor>> GetAll();
     }
 }

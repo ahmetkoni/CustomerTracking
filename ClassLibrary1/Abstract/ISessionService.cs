@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface ISessionService
     {
         IResult Add(Session session);
-        IResult Delete(Session session);
+        IResult Delete(string Id);
         IResult Update(Session session);
     }
 }

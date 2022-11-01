@@ -25,10 +25,11 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ForeignInvestorAdded);
         }
 
-        public IResult Delete(ForeignInvestor foreignInvestor)
+        public IResult Delete(string Id)
         {
+            var foreignInvestor = _foreignInvestorDal.Get(f => f.Id == Id);
             _foreignInvestorDal.Delete(foreignInvestor);
-            return new SuccessResult();
+            return new SuccessDataResult<List<ForeignInvestor>>();
         }
 
         public IDataResult<List<ForeignInvestor>> GetAll()
