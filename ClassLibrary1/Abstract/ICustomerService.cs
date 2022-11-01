@@ -12,7 +12,7 @@ namespace Business.Abstract
     {
         IResult Add(Customer customer);
         IResult Update(Customer customer);
-        IResult Delete(Customer customer);
+        IResult Delete(string id);
         IDataResult<List<Customer>> GetAll();
         IDataResult<List<Customer>> GetByPrice(decimal min, decimal max);
         

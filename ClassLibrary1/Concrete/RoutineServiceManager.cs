@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -21,7 +22,7 @@ namespace Business.Concrete
         public IResult Add(RoutineService routineService)
         {
             _routineServiceDal.Add(routineService);
-            return new SuccessResult();
+            return new SuccessResult(Messages.RoutineServiceAdded);
         }
 
         public IResult Delete(RoutineService routineService)
@@ -32,7 +33,7 @@ namespace Business.Concrete
 
         public IDataResult<List<RoutineService>> GetAll()
         {
-            return new SuccessDataResult<List<RoutineService>>(_routineServiceDal.GetAll());
+            return new SuccessDataResult<List<RoutineService>>(_routineServiceDal.GetAll(),Messages.RoutineServiceListed);
         }
 
         public IDataResult<List<RoutineService>> GetAllById(int customerId)

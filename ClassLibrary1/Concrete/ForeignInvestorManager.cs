@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -21,7 +22,7 @@ namespace Business.Concrete
         public IResult Add(ForeignInvestor foreignInvestor)
         {
             _foreignInvestorDal.Add(foreignInvestor);
-            return new SuccessResult();
+            return new SuccessResult(Messages.ForeignInvestorAdded);
         }
 
         public IResult Delete(ForeignInvestor foreignInvestor)
@@ -32,7 +33,7 @@ namespace Business.Concrete
 
         public IDataResult<List<ForeignInvestor>> GetAll()
         {
-            return new SuccessDataResult<List<ForeignInvestor>>(_foreignInvestorDal.GetAll());
+            return new SuccessDataResult<List<ForeignInvestor>>(_foreignInvestorDal.GetAll(),Messages.ForeignInvestorListed);
         }
 
         public IResult Update(ForeignInvestor foreignInvestor)

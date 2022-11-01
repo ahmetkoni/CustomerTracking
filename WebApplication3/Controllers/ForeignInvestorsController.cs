@@ -19,11 +19,21 @@ namespace WebAPI.Controllers
             _mapper = mapper;
         }
         [HttpPost]
-        public async Task<IActionResult> AddForeignInvestor(ForeignInvestorDto foreignInvestor)
+        public IActionResult AddForeignInvestor(ForeignInvestorDto foreignInvestor)
         {
             var _mappedCustomer = _mapper.Map<ForeignInvestor>(foreignInvestor);
 
             var result = _foreignInvestorService.Add(_mappedCustomer);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpGet("getall")]
+        public IActionResult Get()
+        {
+            var result = _foreignInvestorService.GetAll();
             if (result.Success)
             {
                 return Ok(result);

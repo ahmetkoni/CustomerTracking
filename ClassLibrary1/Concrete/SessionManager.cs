@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -21,7 +22,7 @@ namespace Business.Concrete
         public IResult Add(Session session)
         {
             _sessionDal.Add(session);
-            return new SuccessResult();
+            return new SuccessResult(Messages.SessionAdded);
         }
 
         public IResult Delete(Session session)
