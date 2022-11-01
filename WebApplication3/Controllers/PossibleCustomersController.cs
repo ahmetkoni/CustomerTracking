@@ -51,5 +51,15 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpPost("update")]
+        public IActionResult Update(PossibleCustomer possibleCustomer)
+        {
+            var result = _possibleCustomerService.Update(possibleCustomer);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

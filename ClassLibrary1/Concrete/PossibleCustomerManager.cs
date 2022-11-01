@@ -44,7 +44,8 @@ namespace Business.Concrete
 
         public IResult Update(PossibleCustomer possibleCustomer)
         {
-            throw new NotImplementedException();
+            _possibleCustomerDal.Update(possibleCustomer);
+            return new SuccessDataResult<List<PossibleCustomer>>();
         }
     }
 }

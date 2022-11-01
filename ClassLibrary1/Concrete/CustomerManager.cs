@@ -43,8 +43,9 @@ namespace Business.Concrete
         }
 
         public IResult Update(Customer customer)
-        {
-            throw new NotImplementedException();
+        { 
+            _customerDal.Update(customer);
+            return new SuccessDataResult<List<Customer>>();
         }
     }
 }

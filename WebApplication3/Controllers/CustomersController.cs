@@ -22,14 +22,14 @@ namespace WebApi.Controllers
         [HttpPost]
         public IActionResult AddCustomer(CustomerDto customer)
         {
-        var _mappedCustomer = _mapper.Map<Customer>(customer);
+            var _mappedCustomer = _mapper.Map<Customer>(customer);
 
             var result = _customerService.Add(_mappedCustomer);
             if (result.Success)
             {
                 return Ok(result);
             }
-            return BadRequest(result);        
+            return BadRequest(result);
         }
 
         [HttpGet("getall")]
@@ -46,6 +46,16 @@ namespace WebApi.Controllers
         public IActionResult Delete(string Id)
         {
             var result = _customerService.Delete(Id);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+        [HttpPost("update")]
+        public IActionResult Update(Customer customer)
+        {
+            var result = _customerService.Update(customer);
             if (result.Success)
             {
                 return Ok(result);

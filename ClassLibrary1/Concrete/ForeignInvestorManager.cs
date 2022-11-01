@@ -39,7 +39,8 @@ namespace Business.Concrete
 
         public IResult Update(ForeignInvestor foreignInvestor)
         {
-            throw new NotImplementedException();
+            _foreignInvestorDal.Update(foreignInvestor);
+            return new SuccessDataResult<List<ForeignInvestor>>();
         }
     }
 }

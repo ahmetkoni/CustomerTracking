@@ -51,6 +51,15 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-
+        [HttpPost("update")]
+        public IActionResult Update(Investor investor)
+        {
+            var result = _investorService.Update(investor);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

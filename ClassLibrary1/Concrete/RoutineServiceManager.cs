@@ -49,7 +49,8 @@ namespace Business.Concrete
 
         public IResult Update(RoutineService routineService)
         {
-            throw new NotImplementedException();
+            _routineServiceDal.Update(routineService);
+            return new SuccessDataResult<List<RoutineService>>();
         }
     }
 }

@@ -34,7 +34,8 @@ namespace Business.Concrete
 
         public IResult Update(Session session)
         {
-            throw new NotImplementedException();
+            _sessionDal.Update(session);
+            return new SuccessDataResult<List<Session>>();
         }
     }
 }

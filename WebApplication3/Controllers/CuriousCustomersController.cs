@@ -52,6 +52,15 @@ namespace WebApi.Controllers
             }
             return BadRequest(result);
         }
-
+        [HttpPost("update")]
+        public IActionResult Update(CuriousCustomer curiousCustomer)
+        {
+            var result = _curiousCustomerService.Update(curiousCustomer);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }
