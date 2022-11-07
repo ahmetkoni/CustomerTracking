@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -18,7 +19,7 @@ namespace Business.Concrete
         {
             _customerDal = customerDal;
         }
-
+        [SecuredOperation("product.add,admin")]
         public IResult Add(Customer customer)
         {
             _customerDal.Add(customer);
@@ -29,7 +30,7 @@ namespace Business.Concrete
         {
             var customer = _customerDal.Get(c => c.Id == Id);
             _customerDal.Delete(customer);
-            return new SuccessDataResult<List<Customer>>();
+            return new SuccessDataResult<List<Customer>>(Messages.CustomerDeleted);
         }
 
         public IDataResult<List<Customer>> GetAll()
@@ -45,7 +46,7 @@ namespace Business.Concrete
         public IResult Update(Customer customer)
         { 
             _customerDal.Update(customer);
-            return new SuccessDataResult<List<Customer>>();
+            return new SuccessDataResult<List<Customer>>(Messages.CustomerUpdated);
         }
     }
 }

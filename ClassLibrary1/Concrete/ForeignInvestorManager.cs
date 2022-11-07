@@ -29,7 +29,7 @@ namespace Business.Concrete
         {
             var foreignInvestor = _foreignInvestorDal.Get(f => f.Id == Id);
             _foreignInvestorDal.Delete(foreignInvestor);
-            return new SuccessDataResult<List<ForeignInvestor>>();
+            return new SuccessDataResult<List<ForeignInvestor>>(Messages.ForeignInvestorDeleted);
         }
 
         public IDataResult<List<ForeignInvestor>> GetAll()
@@ -40,7 +40,7 @@ namespace Business.Concrete
         public IResult Update(ForeignInvestor foreignInvestor)
         {
             _foreignInvestorDal.Update(foreignInvestor);
-            return new SuccessDataResult<List<ForeignInvestor>>();
+            return new SuccessDataResult<List<ForeignInvestor>>(Messages.ForeignInvestorUpdated);
         }
     }
 }

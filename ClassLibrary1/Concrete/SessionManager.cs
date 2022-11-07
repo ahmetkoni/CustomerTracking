@@ -35,7 +35,7 @@ namespace Business.Concrete
         public IResult Update(Session session)
         {
             _sessionDal.Update(session);
-            return new SuccessDataResult<List<Session>>();
+            return new SuccessDataResult<List<Session>>(Messages.SessionUpdated);
         }
     }
 }

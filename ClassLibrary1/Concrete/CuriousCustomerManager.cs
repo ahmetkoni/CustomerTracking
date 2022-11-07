@@ -29,7 +29,7 @@ namespace Business.Concrete
         {
             var curiousCustomer = _curiousCustomerDal.Get(c => c.Id == Id);
             _curiousCustomerDal.Delete(curiousCustomer);
-            return new SuccessDataResult<List<CuriousCustomer>>();
+            return new SuccessDataResult<List<CuriousCustomer>>(Messages.CuriousCustomerDeleted);
 
         }
 
@@ -46,7 +46,7 @@ namespace Business.Concrete
         public IResult Update(CuriousCustomer curiousCustomer)
         {
             _curiousCustomerDal.Update(curiousCustomer);
-            return new SuccessDataResult<List<CuriousCustomer>>();
+            return new SuccessDataResult<List<CuriousCustomer>>(Messages.CuriousCustomerUpdated);
         }
     }
 }

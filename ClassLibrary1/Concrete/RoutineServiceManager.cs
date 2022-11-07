@@ -29,7 +29,7 @@ namespace Business.Concrete
         {
             var routineService = _routineServiceDal.Get(r=>r.Id== Id);
             _routineServiceDal.Delete(routineService);
-            return new SuccessDataResult<List<RoutineService>>();
+            return new SuccessDataResult<List<RoutineService>>(Messages.RoutineServiceDeleted);
         }
 
         public IDataResult<List<RoutineService>> GetAll()
@@ -50,7 +50,7 @@ namespace Business.Concrete
         public IResult Update(RoutineService routineService)
         {
             _routineServiceDal.Update(routineService);
-            return new SuccessDataResult<List<RoutineService>>();
+            return new SuccessDataResult<List<RoutineService>>(Messages.RoutineServiceUpdated);
         }
     }
 }
